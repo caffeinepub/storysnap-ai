@@ -1,0 +1,157 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    /* Light mode — clean white */
+    --background: 0.98 0 0;
+    --foreground: 0.12 0.01 264;
+    --card: 0.96 0 0;
+    --card-foreground: 0.12 0.01 264;
+    --popover: 0.98 0 0;
+    --popover-foreground: 0.12 0.01 264;
+    --primary: 0.558 0.217 293;
+    --primary-foreground: 0.98 0 0;
+    --secondary: 0.93 0.01 264;
+    --secondary-foreground: 0.2 0.01 264;
+    --muted: 0.93 0.005 264;
+    --muted-foreground: 0.5 0.01 264;
+    --accent: 0.93 0.01 264;
+    --accent-foreground: 0.2 0.01 264;
+    --destructive: 0.577 0.245 27;
+    --destructive-foreground: 0.98 0 0;
+    --border: 0.88 0.005 264;
+    --input: 0.88 0.005 264;
+    --ring: 0.558 0.217 293;
+    --chart-1: 0.558 0.217 293;
+    --chart-2: 0.82 0.12 199;
+    --chart-3: 0.63 0.24 344;
+    --chart-4: 0.74 0.17 60;
+    --chart-5: 0.48 0.24 264;
+    --sidebar: 0.96 0 0;
+    --sidebar-foreground: 0.12 0.01 264;
+    --sidebar-primary: 0.558 0.217 293;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.93 0.01 264;
+    --sidebar-accent-foreground: 0.2 0.01 264;
+    --sidebar-border: 0.88 0.005 264;
+    --sidebar-ring: 0.558 0.217 293;
+    /* Brand tokens */
+    --brand-purple: 0.558 0.217 293;
+    --brand-indigo: 0.48 0.24 264;
+    --brand-cyan: 0.82 0.12 199;
+    --brand-pink: 0.63 0.24 344;
+    --brand-amber: 0.74 0.17 60;
+  }
+
+  .dark {
+    --background: 0.095 0.008 264;
+    --foreground: 0.95 0.005 264;
+    --card: 0.145 0.012 264;
+    --card-foreground: 0.95 0.005 264;
+    --popover: 0.145 0.012 264;
+    --popover-foreground: 0.95 0.005 264;
+    --primary: 0.558 0.217 293;
+    --primary-foreground: 0.98 0 0;
+    --secondary: 0.18 0.012 264;
+    --secondary-foreground: 0.9 0.005 264;
+    --muted: 0.18 0.012 264;
+    --muted-foreground: 0.55 0.01 264;
+    --accent: 0.2 0.015 264;
+    --accent-foreground: 0.9 0.005 264;
+    --destructive: 0.63 0.22 22;
+    --destructive-foreground: 0.98 0 0;
+    --border: 1 0 0 / 10%;
+    --input: 1 0 0 / 12%;
+    --ring: 0.558 0.217 293;
+    --chart-1: 0.558 0.217 293;
+    --chart-2: 0.82 0.12 199;
+    --chart-3: 0.63 0.24 344;
+    --chart-4: 0.74 0.17 60;
+    --chart-5: 0.48 0.24 264;
+    --sidebar: 0.13 0.01 264;
+    --sidebar-foreground: 0.95 0.005 264;
+    --sidebar-primary: 0.558 0.217 293;
+    --sidebar-primary-foreground: 0.98 0 0;
+    --sidebar-accent: 0.18 0.012 264;
+    --sidebar-accent-foreground: 0.9 0.005 264;
+    --sidebar-border: 1 0 0 / 10%;
+    --sidebar-ring: 0.558 0.217 293;
+    --brand-purple: 0.558 0.217 293;
+    --brand-indigo: 0.56 0.24 264;
+    --brand-cyan: 0.82 0.12 199;
+    --brand-pink: 0.7 0.24 344;
+    --brand-amber: 0.78 0.17 60;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  html.light {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Inter", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  .gradient-cta {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--brand-cyan)) 0%,
+      oklch(var(--brand-indigo)) 40%,
+      oklch(var(--brand-pink)) 80%,
+      oklch(var(--brand-amber)) 100%
+    );
+  }
+
+  .gradient-cta-text {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--brand-cyan)),
+      oklch(var(--brand-indigo)),
+      oklch(var(--brand-pink))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-purple {
+    box-shadow: 0 0 40px 10px oklch(var(--brand-purple) / 0.25);
+  }
+
+  .glow-cyan {
+    box-shadow: 0 0 40px 10px oklch(var(--brand-cyan) / 0.2);
+  }
+
+  .card-surface {
+    background: oklch(var(--card));
+    border: 1px solid oklch(var(--border));
+  }
+
+  .text-gradient-purple-cyan {
+    background: linear-gradient(
+      90deg,
+      oklch(var(--brand-purple)),
+      oklch(var(--brand-cyan))
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
