@@ -1,5 +1,4 @@
 import { Toaster } from "@/components/ui/sonner";
-import { ThemeProvider } from "next-themes";
 import { useEffect, useState } from "react";
 import { useActor } from "./hooks/useActor";
 import { asAppBackend } from "./lib/actorTypes";
@@ -39,9 +38,9 @@ function AppInner() {
 
 export default function App() {
   return (
-    <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false}>
+    <>
       <AppInner />
       <Toaster richColors position="top-right" />
-    </ThemeProvider>
+    </>
   );
 }
