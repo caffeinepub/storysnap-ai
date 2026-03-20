@@ -17,6 +17,13 @@ function AppInner() {
   const backend = asAppBackend(actor);
 
   useEffect(() => {
+    // Hide the HTML splash screen now that React has rendered
+    if (typeof window !== "undefined" && (window as any).__hideSplash) {
+      (window as any).__hideSplash();
+    }
+  }, []);
+
+  useEffect(() => {
     if (backend) {
       void backend.initSeed();
     }
